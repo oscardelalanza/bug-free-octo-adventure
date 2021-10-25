@@ -6,7 +6,7 @@ interface Props {
   state: string
 }
 
-const Li = ({children, state}: Props) => {
+const Li = ({children}: Props) => {
   return (
     <li className='li'>{children}</li>
   )
