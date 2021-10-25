@@ -1,10 +1,23 @@
 import React from 'react';
 import './App.css';
 
+interface Props {
+  children: string
+  state: string
+}
+
+const Li = ({children, state}: Props) => {
+  return (
+    <li className='li'>{children}</li>
+  )
+}
+
 const App = () => {
   const value = 'De La Lanza'
   return (
-    <p>Oscar {value}</p>
+    <ul className="css-class">
+      <Li state='happy'>Valor de Li</Li>
+    </ul>
   )
 }
 
