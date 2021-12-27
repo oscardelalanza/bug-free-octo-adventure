@@ -26,7 +26,7 @@ const Li = ({children}: Props) => {
 const App = () => {
   const value = 'De La Lanza'
   return (
-    <ul style={style({bg: '#750'})}className="css-class">
+    <ul style={style({bg: '#750'})} className="css-class">
       <Li state='happy'>Valor de Li</Li>
     </ul>
   )
