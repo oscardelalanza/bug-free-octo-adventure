@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './main.css'
+// import './App.css';
 
 interface Props {
   children: string
@@ -19,14 +20,14 @@ const style2 = {
 
 const Li = ({children}: Props) => {
   return (
-    <li style={{...style2, ...style({bg: '#333'})}} className='li'>{children}</li>
+    <li className='class-li'>{children}</li>
   )
 }
 
 const App = () => {
   const value = 'De La Lanza'
   return (
-    <ul style={style({bg: '#750'})} className="css-class">
+    <ul className="css-class">
       <Li state='happy'>Valor de Li</Li>
     </ul>
   )
