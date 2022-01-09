@@ -1,11 +1,15 @@
 import { Component } from 'react'
 
 class App extends Component {
+  state = {}
+
   render() {
+    console.log(this.state)
+
     return (
       <div>
         <p>Hola Mundo</p>
-        <button onClick={() => console.log('click')}>
+        <button onClick={() => this.setState({ value: 2 })}>
           Enviar
         </button>
       </div>
