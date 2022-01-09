@@ -23,6 +23,10 @@ class Button extends Component<ButtonProps, ButtonState> {
     console.log('componentDidUpdate', prevProps, prevState)
   }
 
+  componentWillUnmount() {
+    console.log('unmouting component', this.props, this.state)
+  }
+
   render() {
     console.log('Executing button render method')
 
@@ -43,7 +47,7 @@ class App extends Component {
     return (
       <div>
         <p>Hola Mundo</p>
-        <Button emotion='happy' />
+        {this.state.value === 3 ? <Button emotion="happy"/> : null }
         <button className={`${this.state.value}`} onClick={() => this.setState({ value: 2 })}>
           Enviar en App
         </button>
