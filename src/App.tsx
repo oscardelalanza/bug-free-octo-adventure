@@ -1,57 +1,49 @@
-import { Component } from 'react'
-interface ButtonProps {
-  emotion: string
+import { ChangeEvent, Component } from 'react'
+
+interface InputProps {
+  value: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-interface ButtonState {
-  prop?: number
-}
-
-class Button extends Component<ButtonProps, ButtonState> {
-  state = {}
-
-  constructor(props: ButtonProps) {
-    super(props)
-    console.log('constructor', props)
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount')
-  }
-
-  componentDidUpdate(prevProps: ButtonProps, prevState: ButtonState) {
-    console.log('componentDidUpdate', prevProps, prevState)
-  }
-
-  componentWillUnmount() {
-    console.log('unmouting component', this.props, this.state)
-  }
-
+class Input extends Component<InputProps, {}> {
   render() {
-    console.log('Executing button render method')
-
-    return(
-      <button onClick={() => this.setState({ prop: 1})}>Enviar</button>
+    return (
+      <input
+        value={this.props.value}
+        onChange={this.props.onChange}
+      />
     )
   }
 }
 
-class App extends Component {
+interface AppState {
+  name: string
+  last_name: string
+}
+
+class App extends Component<{}, AppState> {
   state = {
-    value: 3
+    name: '',
+    last_name: ''
+  }
+
+  updateValues = (prop: string, value: string) => {
+    this.setState({ [prop]: value } as Pick<AppState, keyof AppState>)
   }
 
   render() {
-    console.log(this.state)
-
     return (
-      <div>
-        <p>Hola Mundo</p>
-        {this.state.value === 3 ? <Button emotion="happy"/> : null }
-        <button className={`${this.state.value}`} onClick={() => this.setState({ value: 2 })}>
-          Enviar en App
-        </button>
-      </div>
+      <p>
+        Nombre completo: { `${this.state.name} ${this.state.last_name}`}
+        <Input
+          value={this.state.name}
+          onChange={e => this.updateValues('name', e.target.value)}
+        />
+        <Input
+          value={this.state.last_name}
+          onChange={e => this.updateValues('last_name', e.target.value)}
+        />
+      </p>
     )
   }
 }
