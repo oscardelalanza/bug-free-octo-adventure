@@ -1,7 +1,9 @@
 import { Component } from 'react'
 
 class App extends Component {
-  state = {}
+  state = {
+    value: 3
+  }
 
   render() {
     console.log(this.state)
@@ -9,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <p>Hola Mundo</p>
-        <button onClick={() => this.setState({ value: 2 })}>
+        <button className={`${this.state.value}`} onClick={() => this.setState({ value: 2 })}>
           Enviar
         </button>
       </div>
