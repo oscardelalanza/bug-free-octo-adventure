@@ -1,6 +1,14 @@
 import { Component } from 'react'
+interface ButtonProps {
+  emotion: string
+}
 
-class Button extends Component {
+class Button extends Component<ButtonProps, {}> {
+  constructor(props: ButtonProps) {
+    super(props)
+    console.log('constructor', props)
+  }
+
   render() {
     console.log('Executing button render method')
 
@@ -21,7 +29,7 @@ class App extends Component {
     return (
       <div>
         <p>Hola Mundo</p>
-        <Button />
+        <Button emotion='happy' />
         <button className={`${this.state.value}`} onClick={() => this.setState({ value: 2 })}>
           Enviar en App
         </button>
