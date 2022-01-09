@@ -9,6 +9,10 @@ class Button extends Component<ButtonProps, {}> {
     console.log('constructor', props)
   }
 
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
+
   render() {
     console.log('Executing button render method')
 
