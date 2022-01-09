@@ -3,7 +3,12 @@ import { Component } from 'react'
 class App extends Component {
   render() {
     return (
-      <p>Hola Mundo</p>
+      <div>
+        <p>Hola Mundo</p>
+        <button onClick={() => console.log('click')}>
+          Enviar
+        </button>
+      </div>
     )
   }
 }
