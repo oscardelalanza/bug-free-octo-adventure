@@ -3,7 +3,13 @@ interface ButtonProps {
   emotion: string
 }
 
-class Button extends Component<ButtonProps, {}> {
+interface ButtonState {
+  prop?: number
+}
+
+class Button extends Component<ButtonProps, ButtonState> {
+  state = {}
+
   constructor(props: ButtonProps) {
     super(props)
     console.log('constructor', props)
@@ -13,11 +19,15 @@ class Button extends Component<ButtonProps, {}> {
     console.log('componentDidMount')
   }
 
+  componentDidUpdate(prevProps: ButtonProps, prevState: ButtonState) {
+    console.log('componentDidUpdate', prevProps, prevState)
+  }
+
   render() {
     console.log('Executing button render method')
 
     return(
-      <button>Enviar</button>
+      <button onClick={() => this.setState({ prop: 1})}>Enviar</button>
     )
   }
 }
